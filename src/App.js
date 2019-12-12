@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import PostList from "./components/PostList";
+import IncDecState from "./components/IncDecState";
+import Timer from "./components/Timer";
 import "./App.css";
 
 class App extends Component {
@@ -48,7 +49,8 @@ class App extends Component {
           <p>{this.state.count}</p>
           <button onClick={this.handeIncrease}>Increase</button>
           <button onClick={this.handeDecrease}>Decrease</button>
-          <PostList count={this.state.count} />
+          <IncDecState count={this.state.count} />
+          <Timer />
         </header>
       </div>
     );

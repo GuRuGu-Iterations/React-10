@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class PostList extends React.Component {
+class IncDecState extends React.Component {
   constructor(props) {
     super(props);
 
@@ -27,8 +27,8 @@ class PostList extends React.Component {
   }
 }
 
-PostList.propTypes = {
+IncDecState.propTypes = {
   count: PropTypes.number.isRequired
 };
 
-export default PostList;
+export default IncDecState;
