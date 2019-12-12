@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import IncDecState from "./components/IncDecState";
+import Counter from "./components/Counter";
 import Timer from "./components/Timer";
 import "./App.css";
 
@@ -8,9 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Dobby",
-      posts: null,
-      count: 0
+      posts: null
     };
   }
 
@@ -30,28 +29,21 @@ class App extends Component {
     }
   };
 
-  handeIncrease = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
-  };
-
-  handeDecrease = () => {
-    this.setState({
-      count: this.state.count - 1
-    });
-  };
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>{this.state.count}</p>
-          <button onClick={this.handeIncrease}>Increase</button>
-          <button onClick={this.handeDecrease}>Decrease</button>
-          <IncDecState count={this.state.count} />
-          <Timer />
-        </header>
+        <Router>
+          <nav>
+            <Link to="/">Counter</Link>
+            <Link to="/timer">Timer</Link>
+          </nav>
+          <div className="container">
+            <Switch>
+              <Route exact path="/" component={Counter} />
+              <Route path="/timer" component={Timer} />
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }
