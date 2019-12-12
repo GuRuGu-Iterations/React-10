@@ -7,6 +7,7 @@ import "./App.css";
 
 class App extends Component {
   constructor(props) {
+    console.log("App // constructor");
     super(props);
     this.state = {
       posts: null
@@ -14,6 +15,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+    console.log("App // componentDidMount");
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "GET"

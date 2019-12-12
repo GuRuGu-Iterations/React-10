@@ -4,6 +4,7 @@ import IncDecState from "./IncDecState";
 export default class Counter extends Component {
   constructor(props) {
     super(props);
+    console.log("Counter // constructor");
     this.state = {
       posts: null,
       count: 0

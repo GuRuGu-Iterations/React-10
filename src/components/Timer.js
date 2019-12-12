@@ -11,7 +11,7 @@ export default class Timer extends Component {
   }
 
   componentDidMount() {
-    console.log("-----------componentDidMount-----------");
+    console.log("Timer // componentDidMount");
     const timerId = setInterval(() => {
       this.setState((state, props) => ({
         time: state.time + 1
@@ -22,7 +22,7 @@ export default class Timer extends Component {
   }
 
   componentWillUnmount() {
-    console.log("-----------componentWillUnmount-----------");
+    console.log("Timer // componentWillUnmount");
     clearInterval(this.state.timerId);
   }
 
