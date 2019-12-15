@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Counter from "./components/Counter";
 import Timer from "./components/Timer";
+import ScrollingList from "./components/ScrollingList";
 import "./App.css";
 
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
     console.log("App // constructor");
     super(props);
     this.state = {
-      posts: null
+      posts: null,
+      list: ["Apapap"]
     };
   }
 
@@ -31,6 +33,12 @@ class App extends Component {
     }
   };
 
+  handleAddScrollListItem = () => {
+    this.setState((state, props) => ({
+      list: [...state.list, "Bonobo"]
+    }));
+  };
+
   render() {
     return (
       <div className="App">
@@ -38,11 +46,19 @@ class App extends Component {
           <nav>
             <Link to="/">Counter</Link>
             <Link to="/timer">Timer</Link>
+            <Link to="/scrollingList">Scrolling List</Link>
+            <button onClick={this.handleAddScrollListItem}>
+              Add Scroll List Item
+            </button>
           </nav>
           <div className="container">
             <Switch>
               <Route exact path="/" component={Counter} />
               <Route path="/timer" component={Timer} />
+              <Route
+                path="/scrollingList"
+                render={() => <ScrollingList list={this.state.list} />}
+              />
             </Switch>
           </div>
         </Router>
